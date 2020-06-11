@@ -2,26 +2,44 @@
 //function romanize (num) {
 //  if (isNaN(num))
 //  return NaN;
+
+function translation(num) {
+  const arabic = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+  const romanNumeral = [
+    "M",
+    "CM",
+    "D",
+    "CD",
+    "C",
+    "XC",
+    "L",
+    "XL",
+    "X",
+    "IX",
+    "V",
+    "IV",
+    "I"
+  const acceptable = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+  
+  if (!num.includes(acceptable)) {
+    alert("unacceptable")
+} else {
+
+  const romanNum = "";
+  for (let index = 0; index <= arabic.length-1; index++) {
+    while(arabic[index] <= num) {
+    romanNum += romanNumeral;
+    num -= arabic[index];
+    return romanNum;
+  }
+}
+}
 //UI Logic
 $(document).ready(function() {
   $("form#roman-numerals").submit(function(event) {
     event.preventDefault();
-    const acceptable = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
     const number = $("input#numberSeq").val();
-    //let numberArray = number.split();
-    // const result = translateToRoman(number);
-    if(!number.includes(acceptable)){
-      alert("unacceptable")
-    } else {
-      const numeral = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
-      for (let index = 0; index <= numeral.length-1; index++) {
-        while numeral[index] <= number) {
-          roman += romanNumeral[index];
-          numeral -= arabic[index];
-        }
-    }
-    return roman;
-
+    translateToRoman(number);
     $("#output").show();
     $("#result").text(number);
   });
@@ -57,8 +75,8 @@ $(document).ready(function() {
 
 //const value = {"str" : 10 }
 
-// const translateToRoman = function(number) {
-//   const number = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+// const translateToRoman = function(num) {
+//   const arabic = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
 //   const romanNumeral = [
 //     "M",
 //     "CM",
@@ -75,8 +93,16 @@ $(document).ready(function() {
 //     "I"
 //   ];
 
+const romanNum = "";
 
-// for (let index = 0; index <= number.length-1; index++) {
+
+for (let index = 0; index <= arabic.length-1; index++) {
+  while(arabic[index] <= num) {
+    romanNum += romanNumeral;
+    num -= arabic[index];
+  }
+
+  return romanNum;
   
 //   
 // 
